@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        {% block titulo %}
+        Homepage
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% block body %}
+
+<h1>Homepage</h1>
+
+<a href="{{ url_for('perfil', usuario='Davi') }}">
+    Ir para meu Perfil
+</a>
+{% endblock %}
+</body>
+</html>
