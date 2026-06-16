@@ -12,9 +12,26 @@
 
 <h1>Homepage</h1>
 
-<a href="{{ url_for('perfil', usuario='Davi') }}">
-    Ir para meu Perfil
-</a>
+<a href="{{ url_for('perfil', usuario='Davi') }}"></a>
+<a href="{{ url_for('criarconta')}}">Criar conta</a>
+
+{%block formulario %}
+<form method="POST">
+
+        {{form.csrf_token }}
+
+        {{form.email.label }}
+        {{form.email() }}
+
+        {{form.senha.label }}
+        {{form.senha() }}
+
+        {{form.botao_confirmacao() }}
+
+
+
+</form>
+ {% endblock %}
 {% endblock %}
 </body>
 </html>
