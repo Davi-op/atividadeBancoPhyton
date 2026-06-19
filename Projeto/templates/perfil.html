@@ -7,8 +7,8 @@ Perfil
 {% endblock %}
 
 {% block body %}
-<h1>Perfil de {{ usuario }}</h1>
-<a href="{{ url_for('homepage')}}">Sair </a>
+<h1>Esse é o perfil de {{ usuario.username }}</h1>
+<a href="{{ url_for('logout')}}">Sair </a>
 {% endblock %}
 </body>
 </html>
