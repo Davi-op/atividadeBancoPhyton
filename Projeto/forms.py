@@ -20,3 +20,4 @@ class FormCriarConta(FlaskForm):
         usuario = Usuario.query.filter_by(email=email.data).first()
         if usuario:
             raise ValidationError("Email ja cadastrado, Faça login para continuar")
+
