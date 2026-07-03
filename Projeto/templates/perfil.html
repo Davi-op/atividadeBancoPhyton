@@ -1,14 +1,38 @@
 {% extends 'homepage.html' %}
-<h1>Perfil de {{ usuario }}</h1>
-
 
 {% block titulo %}
-Perfil
+Perfil de {{ usuario.nome }}
 {% endblock %}
 
 {% block body %}
-<h1>Esse é o perfil de {{ usuario.username }}</h1>
-<a href="{{ url_for('logout')}}">Sair </a>
+<h1>Perfil de {{ usuario.nome }}</h1>
+
+<hr>
+
+<h3>Informações do Usuário:</h3>
+<p><strong>Nome:</strong> {{ usuario.nome }}</p>
+<p><strong>E-mail:</strong> {{ usuario.email }}</p>
+<p><strong>Cargo:</strong> {{ usuario.cargo.capitalize() }}</p>
+
+{<hr>
+
+<a href="{{ url_for('feed') }}">
+    Feed de Tarefas
+</a>
+
+<br><br>
+
+{% if current_user.cargo.lower() == 'gerente' and current_user.id == usuario.id %}
+
+<a href="{{ url_for('criartarefa') }}">
+    Criar Tarefa
+</a>
+
+<br><br>
+
+{% endif %}
+
+<a href="{{ url_for('logout') }}">
+    Sair / Voltar
+</a>
 {% endblock %}
-</body>
-</html>

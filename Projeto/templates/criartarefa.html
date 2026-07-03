@@ -1,0 +1,47 @@
+{% extends 'homepage.html' %}
+
+{% block body %}
+
+<h2>Criar Tarefa</h2>
+
+<form method="POST">
+
+    {{ form.csrf_token }}
+
+    <p>
+        {{ form.titulo.label }}
+        {{ form.titulo() }}
+    </p>
+
+    <p>
+        {{ form.descricao.label }}
+        {{ form.descricao() }}
+    </p>
+
+    <p>
+        {{ form.id_responsavel.label }}
+        {{ form.id_responsavel() }}
+    </p>
+
+    <p>
+        {{ form.data_entrega.label }}
+        {{ form.data_entrega(type="date") }}
+    </p>
+
+    <p>
+        {{ form.status.label }}
+        {{ form.status() }}
+    </p>
+
+    <p>
+        {{ form.demanda.label }}
+        {{ form.demanda() }}
+    </p>
+
+    <p>
+        {{ form.botao_criar() }}
+    </p>
+
+</form>
+
+{% endblock %}

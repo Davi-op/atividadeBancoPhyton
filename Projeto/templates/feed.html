@@ -1,0 +1,65 @@
+{% extends "homepage.html" %}
+
+{% block titulo %}
+Feed de Tarefas
+{% endblock %}
+
+{% block body %}
+
+<h1>Feed de Tarefas</h1>
+
+<a href="{{ url_for('perfil', id_usuario=current_user.id) }}">
+    Voltar ao Perfil
+</a>
+
+<hr>
+
+{% if tarefas %}
+
+    {% for tarefa in tarefas %}
+
+        <div style="border:1px solid black; padding:15px; margin-bottom:20px;">
+
+            <h2>{{ tarefa.titulo }}</h2>
+
+            <p>
+                <strong>Descrição:</strong><br>
+                {{ tarefa.descricao }}
+            </p>
+
+            <p>
+                <strong>Urgência:</strong>
+                {{ tarefa.demanda }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ tarefa.status }}
+            </p>
+
+            <p>
+                <strong>Responsável:</strong>
+                {{ tarefa.responsavel.username }}
+            </p>
+
+            <p>
+                <strong>Criado por:</strong>
+                {{ tarefa.criador.username }}
+            </p>
+
+            <p>
+                <strong>Entrega:</strong>
+                {{ tarefa.data_entrega.strftime("%d/%m/%Y") }}
+            </p>
+
+        </div>
+
+    {% endfor %}
+
+{% else %}
+
+<h3>Nenhuma tarefa cadastrada.</h3>
+
+{% endif %}
+
+{% endblock %}

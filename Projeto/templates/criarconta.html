@@ -1,35 +1,33 @@
-{% extends "homepage.html" %}
+{% extends "homepage.html"%}
 
-
-{%block titulo %}
+{% block titulo%}
 Criar conta
 {% endblock %}
 
-{%block body %}
-<a href="{{ url_for('homepage') }}">Login</a>
+{% block body %}
+<a href = "{{ url_for('homepage') }}">login </a>
 
+{% block formulario%}
+<form method = "POST">
 
-{%block formulario%}
-<form method="POST">
-    {{ form.csrf_token }}
+{{ form.csrf_token() }}
 
+{{form.email.label }}
+{{ form.email() }}
 
-    {{ form.email.label }}
-    {{ form.email() }}
+{{form.username.label }}
+{{ form.username() }}
 
-    {{ form.username.label }}
-    {{ form.username() }}
+{{form.senha.label}}
+{{ form.senha() }}
 
+{{form.confirmacao_senha.label}}
+{{ form.confirmacao_senha() }}
 
-    {{form.senha.label}}
-    {{form.senha()}}
+{{ form.cargo.label }}
+{{ form.cargo() }}
 
-
-    {{form.confirmacao_senha.label}}
-    {{form.confirmacao_senha()}}
-
-    {{ form.botao_confirmacao() }}
-
+{{ form.botao_confirmacao() }}
 </form>
-{%endblock%}
-{%endblock%}
+{% endblock %}
+{% endblock %}

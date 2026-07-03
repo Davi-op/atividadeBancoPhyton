@@ -1,37 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>
         {% block titulo %}
-        Homepage
+        homepage
         {% endblock %}
     </title>
 </head>
 <body>
 {% block body %}
+<h1>Meu site</h1>
 
-<h1>Homepage</h1>
+<a href="{{ url_for('criarconta')}}">Criar conta</a>
 
+{% block formulario%}
 
-<a href="{{ url_for ('criarconta')}}">Criar Conta</a>
+<form method = "POST">
 
-{%block formulario %}
-<form method="POST">
+    {{ form.csrf_token() }}
 
-        {{form.csrf_token }}
+    {{form.email.label }}
+    {{ form.email() }}
 
-        {{form.email.label }}
-        {{form.email() }}
+    {{ form.senha.label}}
+    {{ form.senha() }}
 
-        {{form.senha.label }}
-        {{form.senha() }}
-
-        {{form.botao_confirmacao() }}
-
-
+    {{ form.botao_confirmacao() }}
 
 </form>
- {% endblock %}
+{% endblock %}
 {% endblock %}
 </body>
 </html>
